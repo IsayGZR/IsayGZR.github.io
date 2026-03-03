@@ -648,54 +648,119 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
+        /* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
 
-            .nav-links {
-                display: none;
-            }
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+}
 
-            .hero-wrapper {
-                flex-direction: column-reverse;
-                gap: 40px;
-            }
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
 
-            .profile-photo {
-                width: 280px;
-                height: 280px;
-            }
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
 
-            .hero h1 {
-                font-size: 48px;
-            }
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
 
-            .hero h2 {
-                font-size: 36px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .skills-grid,
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .image-gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .research-hero {
-                padding: 30px;
-            }
-
-            .research-title {
-                font-size: 28px;
-            }
+/* Responsive */
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 20px;
         }
+
+        .mobile-menu-toggle {
+            display: flex;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 70%;
+            height: calc(100vh - 70px);
+            background: var(--secondary);
+            flex-direction: column;
+            padding: 40px 20px;
+            gap: 20px;
+            transition: right 0.3s ease;
+            border-left: 1px solid rgba(100, 255, 218, 0.1);
+            overflow-y: auto;
+        }
+
+        .nav-links.active {
+            right: 0;
+        }
+
+        .nav-links a {
+            font-size: 18px;
+            padding: 10px 0;
+        }
+
+        .hero-wrapper {
+            flex-direction: column-reverse;
+            gap: 40px;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+        }
+
+        .section-title {
+            font-size: 24px;
+        }
+
+        .skills-grid,
+        .education-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .image-gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .research-hero {
+            padding: 30px;
+        }
+
+        .research-title {
+            font-size: 28px;
+        }
+
+        .project-tabs {
+            flex-direction: column;
+        }
+
+        .tab-button {
+            width: 100%;
+            text-align: left;
+        }
+    }
 
         /* Scroll animations */
         .fade-in {
@@ -966,16 +1031,21 @@
     <nav>
         <div class="container">
             <div class="logo">IGZ</div>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#conferences">Conferences</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#research" onclick="closeMenu()">Research</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#education" onclick="closeMenu()">Education</a></li>
+                <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="#publications" onclick="closeMenu()">Publications</a></li>
+                <li><a href="#conferences" onclick="closeMenu()">Conferences</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -1296,7 +1366,7 @@
             <div style="margin-top: 60px;">
 
                 <div class="research-badge">PERSONAL PROJECT — FULL STACK + ML</div>
-                <h3 class="research-title">AI Gym Tracker Pro — Intelligent Training Assistant</h3>
+                <h3 class="research-title">AI Gym Tracker — Intelligent Training Assistant</h3>
                 <p class="research-description">
                     End-to-end full stack web application for workout tracking with integrated AI capabilities, 
                     deployed on AWS. Combines a serverless backend architecture with machine learning models 
@@ -1869,6 +1939,22 @@
                 nav.style.background = 'rgba(10, 25, 47, 0.95)';
             }
         });
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
     </script>
 </body>
 </html>
