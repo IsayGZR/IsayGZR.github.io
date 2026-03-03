@@ -969,6 +969,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
@@ -1287,12 +1288,190 @@
                 </div>
             </div>
 
+        <section id="projects">
+        <div class="container">
+            <h2 class="section-title" data-number="03.">Projects</h2>
+
+            <!-- ==================== AI GYM TRACKER PRO ==================== -->
+            <div style="margin-top: 60px;">
+
+                <div class="research-badge">PERSONAL PROJECT — FULL STACK + ML</div>
+                <h3 class="research-title">AI Gym Tracker Pro — Intelligent Training Assistant</h3>
+                <p class="research-description">
+                    End-to-end full stack web application for workout tracking with integrated AI capabilities, 
+                    deployed on AWS. Combines a serverless backend architecture with machine learning models 
+                    for performance prediction, a conversational AI assistant powered by Google Gemini, 
+                    and a computer vision-based nutritional analysis module.
+                </p>
+
+                <div class="research-meta">
+                    <div class="meta-item"><strong>🚀</strong><span>Live on AWS Amplify</span></div>
+                    <div class="meta-item"><strong>☁️</strong><span>Serverless Architecture</span></div>
+                    <div class="meta-item"><strong>🤖</strong><span>Google Gemini 2.5 Flash</span></div>
+                    <div class="meta-item"><strong>📅</strong><span>October 2024 – Present</span></div>
+                </div>
+
+                <div class="tech-tags" style="margin-bottom: 50px;">
+                    <span class="tech-tag">AWS Lambda</span>
+                    <span class="tech-tag">Amazon Cognito</span>
+                    <span class="tech-tag">AWS Amplify</span>
+                    <span class="tech-tag">API Gateway</span>
+                    <span class="tech-tag">DynamoDB</span>
+                    <span class="tech-tag">Python 3.12</span>
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Google Gemini AI</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">GitHub CI/CD</span>
+                </div>
+
+                <!-- 01: AWS Architecture -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
+                        <img src="gym_tracker/screenshot_main.png" alt="Main Dashboard" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_main.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">01 — SERVERLESS ARCHITECTURE</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">AWS Serverless Backend</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            Designed and deployed a fully serverless backend using a multi-Lambda architecture. 
+                            Each feature runs on independent Python 3.12 Lambda functions triggered via API Gateway. 
+                            State is persisted in DynamoDB and served through AWS Amplify with CI/CD connected to 
+                            GitHub — every <code style="color:var(--accent); font-family:Space Mono,monospace;">git push</code> triggers an automatic deployment.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> AWS Lambda — serverless compute per feature</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> API Gateway + DynamoDB — REST endpoints & NoSQL persistence</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> AWS Amplify + GitHub — automatic CI/CD pipeline</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Amazon Cognito — JWT-based authentication & user pools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 02: Authentication & Demo -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">02 — AUTHENTICATION & DEMO MODE</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Cognito Auth & Isolated Demo</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            Complete authentication flow using Amazon Cognito User Pools with email/password login, 
+                            OTP email verification and persistent JWT sessions. A public demo mode loads isolated 
+                            in-memory data — all AWS write operations are blocked at the application level, 
+                            protecting real user data from modification.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> USER_PASSWORD_AUTH flow with JWT token management</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Demo mode with 15 pre-loaded workouts & 5 routines</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> 8-step interactive guided tour for portfolio visitors</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Write-protection — AWS calls blocked in demo mode</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
+                        <img src="gym_tracker/screenshot_login.png" alt="Login & Demo" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_login.png ]</span>'">
+                    </div>
+                </div>
+
+                <!-- 03: ML Prediction -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
+                        <img src="gym_tracker/screenshot_prediction.png" alt="ML Prediction" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_prediction.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">03 — MACHINE LEARNING</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Performance Prediction — Polynomial Regression</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            A dedicated Python Lambda implements polynomial regression over workout history 
+                            to predict future 1RM (one-rep max). The Epley formula estimates 1RM per session, 
+                            then a degree-2 polynomial is fitted via 
+                            <code style="color:var(--accent); font-family:Space Mono,monospace;">numpy.polyfit</code> 
+                            and extrapolated over a configurable forecast horizon of up to 8 sessions.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Epley formula — 1RM = weight × (1 + reps/30)</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Degree-2 polynomial regression via numpy.polyfit</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Plateau detection — flags stagnation under 2kg over 3 sessions</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Configurable horizon: +3, +4, +5 or +8 sessions ahead</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 04: Computer Vision -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">04 — COMPUTER VISION</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Nutritional Analysis via Vision API</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            Users capture food photos via the device camera or file upload. Images are captured 
+                            through the <code style="color:var(--accent); font-family:Space Mono,monospace;">MediaDevices API</code>, 
+                            drawn to a Canvas element, encoded as base64 JPEG and sent to the Gemini Vision 
+                            multimodal API, which identifies the food, estimates the portion and returns a 
+                            structured macronutrient breakdown in under 3 seconds.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Gemini Vision API — multimodal food recognition</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> MediaDevices API — real-time camera stream & frame capture</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Base64 encoding — images sent inline in API payload</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Structured JSON output — calories, protein, carbs, fats</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
+                        <img src="gym_tracker/screenshot_calories.png" alt="Calorie Counter" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_calories.png ]</span>'">
+                    </div>
+                </div>
+
+                <!-- 05: Chatbot -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
+                        <img src="gym_tracker/screenshot_chat.png" alt="AI Chatbot" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_chat.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">05 — CONVERSATIONAL AI</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">AI Training Assistant — Gemini 2.5 Flash</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            A persistent floating chatbot powered by Google Gemini 2.5 Flash, accessible from 
+                            any screen. The API key is secured in an AWS Lambda proxy — never exposed in the 
+                            frontend. Each message injects the user's full workout history as context, 
+                            enabling personalized training advice and voice-based interaction.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Gemini 2.5 Flash — low-latency conversational model</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Lambda proxy — API key secured server-side</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Context injection — workout history in every prompt</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Web Speech API — voice input for hands-free use</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Key Achievements -->
+                <div style="margin-top:20px; padding:35px; background:var(--secondary); border-left:3px solid var(--accent);">
+                    <h4 style="font-size:22px; color:var(--text-light); margin-bottom:20px;">Key Achievements</h4>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding-left:0;">
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Designed and deployed a complete serverless architecture on AWS — Lambda, API Gateway, DynamoDB, Cognito and Amplify</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Implemented ML prediction pipeline using polynomial regression and the Epley 1RM formula to forecast athletic performance</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Integrated computer vision via Gemini Vision API for real-time food recognition and macronutrient analysis from camera</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Secured API keys server-side using an AWS Lambda proxy — frontend code never exposes credentials</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Configured CI/CD pipeline connecting GitHub to AWS Amplify for automatic deployments on every commit</li>
+                        <li style="padding-left:30px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Built interactive 8-step onboarding tour and contextual tooltip system without external libraries</li>
+                    </ul>
+                </div>
+
+                <!-- Links -->
+                <div class="research-links">
+                    <a href="https://main.d5ow7dc16z1fk.amplifyapp.com" target="_blank" class="research-link">🚀 Live Demo</a>
+                    <a href="https://github.com/IsayGZR/gym-tracker" target="_blank" class="research-link">💻 GitHub Repository</a>
+                </div>
+
+            </div>
+            <!-- ==================== FIN GYM TRACKER ==================== -->
+
+        </div>
+    </section>
         </div>
     </section>
 
     <section id="experience">
         <div class="container">
-            <h2 class="section-title" data-number="03.">Experience</h2>
+            <h2 class="section-title" data-number="04.">Experience</h2>
             
             <div class="experience-item fade-in">
                 <div class="experience-header">
@@ -1335,7 +1514,7 @@
 
     <section id="education">
         <div class="container">
-            <h2 class="section-title" data-number="04.">Education</h2>
+            <h2 class="section-title" data-number="05.">Education</h2>
             <div class="education-grid">
                 <div class="education-card fade-in">
                     <div class="education-degree">MSc in Computer Science</div>
@@ -1353,7 +1532,7 @@
 
     <section id="skills">
         <div class="container">
-            <h2 class="section-title" data-number="05.">Technical Skills</h2>
+            <h2 class="section-title" data-number="06.">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
                     <h3>Programming Languages</h3>
@@ -1409,7 +1588,7 @@
 
     <section id="certifications">
         <div class="container">
-            <h2 class="section-title" data-number="06.">Certifications & Courses</h2>
+            <h2 class="section-title" data-number="07.">Certifications & Courses</h2>
             <div class="cert-grid">
                 <div class="cert-item fade-in">
                     <div class="cert-icon">🎓</div>
@@ -1483,7 +1662,7 @@
 
     <section id="publications">
         <div class="container">
-            <h2 class="section-title" data-number="07.">Publications</h2>
+            <h2 class="section-title" data-number="08.">Publications</h2>
             <div class="pub-grid">
                 <div class="pub-item fade-in">
                     <span class="pub-badge">PUBLISHED</span>
@@ -1526,7 +1705,7 @@
 
     <section id="conferences">
         <div class="container">
-            <h2 class="section-title" data-number="08.">Conference Presentations</h2>
+            <h2 class="section-title" data-number="09.">Conference Presentations</h2>
             
             <div class="conf-grid">
                 <!-- Conference 1: IEEE LACCI 2025 -->
