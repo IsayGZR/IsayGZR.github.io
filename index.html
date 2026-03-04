@@ -583,13 +583,16 @@
 
         .conf-image {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
+            height: 400px;
+            object-fit: contain;
+            object-position: center;
             transition: transform 0.3s ease;
+            background: var(--primary);
+            padding: 10px;
         }
 
         .conf-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         /* Contact Section */
@@ -1001,9 +1004,10 @@
 
         .gallery-image {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+            height: auto;
+            object-fit: scale-down;
             display: block;
+            max-width: 100%;
         }
 
         .gallery-caption {
@@ -1397,8 +1401,8 @@
 
                 <!-- 01: AWS Architecture -->
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
-                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
-                        <img src="gym_tracker/screenshot_main.png" alt="Main Dashboard" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_main.png ]</span>'">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center; max-width: 100%;">
+                        <img src="screenshot_main.png" alt="Main Dashboard" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_main.png ]</span>'">
                     </div>
                     <div>
                         <div class="research-badge" style="font-size:12px;">01 — SERVERLESS ARCHITECTURE</div>
@@ -1436,15 +1440,15 @@
                             <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Write-protection — AWS calls blocked in demo mode</li>
                         </ul>
                     </div>
-                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
-                        <img src="gym_tracker/screenshot_login.png" alt="Login & Demo" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_login.png ]</span>'">
+                    <div style="display:flex; align-items:center; justify-content:center;">
+                        <img src="screenshot_login.png" alt="Login & Demo" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;">
                     </div>
                 </div>
 
                 <!-- 03: ML Prediction -->
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
-                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
-                        <img src="gym_tracker/screenshot_prediction.png" alt="ML Prediction" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_prediction.png ]</span>'">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <img src="screenshot_prediction.png" alt="ML Prediction" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_prediction.png ]</span>'">
                     </div>
                     <div>
                         <div class="research-badge" style="font-size:12px;">03 — MACHINE LEARNING</div>
@@ -1484,15 +1488,15 @@
                             <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Structured JSON output — calories, protein, carbs, fats</li>
                         </ul>
                     </div>
-                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
-                        <img src="gym_tracker/screenshot_calories.png" alt="Calorie Counter" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_calories.png ]</span>'">
+                    <div style="display:flex; align-items:center; justify-content:center;">
+                        <img src="screenshot_chat.png" alt="AI Chatbot" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_chat.png ]</span>'">
                     </div>
                 </div>
 
                 <!-- 05: Chatbot -->
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
-                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">
-                        <img src="gym_tracker/screenshot_chat.png" alt="AI Chatbot" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_chat.png ]</span>'">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <img src="screenshot_calories.png" alt="Calorie Counter" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ screenshot_calories.png ]</span>'">
                     </div>
                     <div>
                         <div class="research-badge" style="font-size:12px;">05 — CONVERSATIONAL AI</div>
