@@ -1537,7 +1537,206 @@
 
             </div>
             <!-- ==================== FIN GYM TRACKER ==================== -->
+             
 
+
+            <!-- ==================== LIGA MX PREDICTOR ==================== -->
+            <div style="margin-top: 100px;">
+
+                <div class="research-badge">PERSONAL PROJECT — DATA ENGINEERING + ML</div>
+                <h3 class="research-title">Liga MX Predictor — Football Match Prediction Pipeline</h3>
+                <p class="research-description">
+                    End-to-end Data Engineering and Machine Learning pipeline built on Microsoft Azure
+                    that predicts the outcome of Liga MX football matches (home win, draw, or away win).
+                    The system ingests historical match data from a real sports API, processes it through
+                    a multi-stage transformation pipeline, trains a Random Forest classifier, and exposes
+                    predictions through a serverless Azure Function consumed by a public web dashboard.
+                </p>
+
+                <div class="research-meta">
+                    <div class="meta-item"><strong>🚀</strong><span>Live on Azure Static Web Apps</span></div>
+                    <div class="meta-item"><strong>☁️</strong><span>Serverless Architecture</span></div>
+                    <div class="meta-item"><strong>🤖</strong><span>Random Forest Classifier</span></div>
+                    <div class="meta-item"><strong>📅</strong><span>March 2026</span></div>
+                </div>
+
+                <div class="tech-tags" style="margin-bottom: 50px;">
+                    <span class="tech-tag">Python 3.12</span>
+                    <span class="tech-tag">Azure Blob Storage</span>
+                    <span class="tech-tag">Azure Functions</span>
+                    <span class="tech-tag">Azure Static Web Apps</span>
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">pandas</span>
+                    <span class="tech-tag">Random Forest</span>
+                    <span class="tech-tag">API-Sports</span>
+                    <span class="tech-tag">Git + GitHub</span>
+                    <span class="tech-tag">python-dotenv</span>
+                </div>
+
+                <!-- 01: Data Pipeline Architecture -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center; max-width:100%;">
+                        <img src="liga_screenshot_dashboard.png" alt="Liga MX Dashboard" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ liga_screenshot_dashboard.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">01 — DATA PIPELINE ARCHITECTURE</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Multi-Stage Data Engineering Pipeline</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            Designed and implemented a three-stage data pipeline following the Medallion Architecture
+                            pattern (raw → processed → predictions). Each stage is an independent Python script that
+                            reads from and writes to Azure Blob Storage, simulating a production-grade Data Engineering
+                            workflow where extraction, transformation, and model training are decoupled processes.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> <code style="color:var(--accent); font-family:'Space Mono',monospace;">extract.py</code> — ingests raw match data from API-Sports REST API</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> <code style="color:var(--accent); font-family:'Space Mono',monospace;">transform.py</code> — cleans data and engineers ML features using pandas</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> <code style="color:var(--accent); font-family:'Space Mono',monospace;">train.py</code> — trains Random Forest classifier and persists model to Blob Storage</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Azure Blob Storage — three isolated containers: <code style="color:var(--accent); font-family:'Space Mono',monospace;">raw</code>, <code style="color:var(--accent); font-family:'Space Mono',monospace;">processed</code>, <code style="color:var(--accent); font-family:'Space Mono',monospace;">predictions</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 02: Data Extraction -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">02 — DATA EXTRACTION</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Real Match Data — API-Sports Integration</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            The extraction script connects to the <code style="color:var(--accent); font-family:'Space Mono',monospace;">v3.football.api-sports.io</code> endpoint,
+                            querying Liga MX (league ID: 262) across three seasons (2022, 2023, 2024). A total of
+                            1,022 raw matches were extracted and uploaded as CSV to the <code style="color:var(--accent); font-family:'Space Mono',monospace;">raw</code> Blob Storage container.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> API-Sports REST API — 100 free requests/day on free tier</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Liga MX — league ID 262, seasons 2022–2024</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> 1,022 raw matches extracted across 3 seasons</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> CSV output uploaded to Azure Blob Storage <code style="color:var(--accent); font-family:'Space Mono',monospace;">raw</code> container</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <img src="liga_screenshot_extract.png" alt="Extract Output" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ liga_screenshot_extract.png ]</span>'">
+                    </div>
+                </div>
+
+                <!-- 03: Feature Engineering -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <img src="liga_screenshot_features.png" alt="Feature Engineering" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ liga_screenshot_features.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">03 — FEATURE ENGINEERING</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Transformation & ML Feature Generation</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            The transformation script engineers four key features using pandas
+                            <code style="color:var(--accent); font-family:'Space Mono',monospace;">groupby</code>,
+                            <code style="color:var(--accent); font-family:'Space Mono',monospace;">shift</code>, and
+                            <code style="color:var(--accent); font-family:'Space Mono',monospace;">rolling</code> operations.
+                            The <code style="color:var(--accent); font-family:'Space Mono',monospace;">shift(1)</code> offset is
+                            critical — it prevents the current match from being used to predict itself (data leakage).
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> <code style="color:var(--accent); font-family:'Space Mono',monospace;">home_form</code> — average result of last 5 home matches (1/0/-1)</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> <code style="color:var(--accent); font-family:'Space Mono',monospace;">away_form</code> — average result of last 5 away matches</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> <code style="color:var(--accent); font-family:'Space Mono',monospace;">home_goals_avg</code> / <code style="color:var(--accent); font-family:'Space Mono',monospace;">away_goals_avg</code> — rolling 5-match goal averages</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> 491 clean matches with complete features saved to <code style="color:var(--accent); font-family:'Space Mono',monospace;">processed</code> container</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 04: Machine Learning -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">04 — MACHINE LEARNING</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Random Forest Classifier — Match Outcome Prediction</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            A <code style="color:var(--accent); font-family:'Space Mono',monospace;">RandomForestClassifier</code> (100 estimators) was trained to classify match outcomes
+                            into three classes: H (home win), D (draw), A (away win). Random Forest was selected
+                            after benchmarking against XGBoost — which achieved only 39% accuracy — due to its
+                            robustness with small tabular datasets and resistance to overfitting.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> RandomForestClassifier — 100 estimators, random_state=42</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> 80/20 train-test split via scikit-learn</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> 41% accuracy — above 33% random baseline for a 3-class problem</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Home win best class — 55% precision, 65% recall</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <img src="liga_screenshot_train.png" alt="Training Output" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ liga_screenshot_train.png ]</span>'">
+                    </div>
+                </div>
+
+                <!-- 05: Serverless API -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <img src="liga_screenshot_api.png" alt="Azure Function API" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ liga_screenshot_api.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">05 — SERVERLESS API</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Azure Functions — Prediction Endpoint</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            A Python Azure Function exposes an HTTP POST endpoint at
+                            <code style="color:var(--accent); font-family:'Space Mono',monospace;">/api/predict</code>.
+                            On each request, it downloads the latest <code style="color:var(--accent); font-family:'Space Mono',monospace;">.pkl</code> model
+                            from Blob Storage, computes real-time team stats, and returns a structured JSON with
+                            the predicted outcome and win/draw/loss probabilities. CORS is configured for the Static Web App domain.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Azure Functions v4 — Python 3.12, Consumption plan (scales to zero)</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Dynamic model loading — always fetches latest <code style="color:var(--accent); font-family:'Space Mono',monospace;">.pkl</code> from Blob Storage</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> <code style="color:var(--accent); font-family:'Space Mono',monospace;">model.predict_proba()</code> — returns probability for each outcome class</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Deployed via Azure CLI — <code style="color:var(--accent); font-family:'Space Mono',monospace;">func azure functionapp publish liga-mx-api</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 06: Dashboard & Deployment -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">06 — DASHBOARD & DEPLOYMENT</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Public Dashboard — Azure Static Web Apps</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            The frontend is a single HTML file with vanilla JavaScript that makes POST requests
+                            to the Azure Function. Users select home and away teams from an 18-team dropdown and
+                            receive the predicted outcome with probability bars and recent form stats.
+                            Deployed on Azure Static Web Apps with automatic CI/CD — every
+                            <code style="color:var(--accent); font-family:'Space Mono',monospace;">git push</code> triggers a new deployment.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Azure Static Web Apps — free tier, global CDN, automatic HTTPS</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> GitHub CI/CD — automatic deploy on every push to <code style="color:var(--accent); font-family:'Space Mono',monospace;">main</code></li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Vanilla JS Fetch API — POST to Azure Function, renders JSON response</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> 18 Liga MX teams — dropdown selection for home and away team</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--secondary); border:1px solid rgba(100,255,218,0.2); border-radius:4px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                        <img src="liga_screenshot_prediction.png" alt="Prediction Dashboard" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ liga_screenshot_prediction.png ]</span>'">
+                    </div>
+                </div>
+
+                <!-- Key Achievements -->
+                <div style="margin-top:20px; padding:35px; background:var(--secondary); border-left:3px solid var(--accent);">
+                    <h4 style="font-size:22px; color:var(--text-light); margin-bottom:20px;">Key Achievements</h4>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding-left:0;">
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Built a complete 3-stage Data Engineering pipeline following Medallion Architecture (raw → processed → predictions) on Azure Blob Storage</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Engineered lag-based features using pandas <code style="color:var(--accent); font-family:'Space Mono',monospace;">groupby</code>, <code style="color:var(--accent); font-family:'Space Mono',monospace;">shift</code>, and <code style="color:var(--accent); font-family:'Space Mono',monospace;">rolling</code> to prevent data leakage in time-series match data</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Trained and benchmarked Random Forest vs XGBoost classifiers, achieving 41% accuracy — above the 33% random baseline for a 3-class problem</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Deployed a serverless prediction API using Azure Functions (Consumption plan) with dynamic model loading from Blob Storage</li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Secured all credentials using environment variables locally and Azure App Settings in production — zero secrets in source code</li>
+                        <li style="padding-left:30px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);font-size:20px;">▹</span> Configured automatic CI/CD pipeline connecting GitHub to Azure Static Web Apps for zero-downtime deployments</li>
+                    </ul>
+                </div>
+
+                <!-- Links -->
+                <div class="research-links">
+                    <a href="https://mango-sea-075482f0f.6.azurestaticapps.net" target="_blank" class="research-link">🚀 Live Demo</a>
+                    <a href="https://github.com/IsayGZR/liga-mx-predictor" target="_blank" class="research-link">💻 GitHub Repository</a>
+                </div>
+
+            </div>
+            <!-- ==================== FIN LIGA MX PREDICTOR ==================== -->
+
+            
         </div>
     </section>
         </div>
