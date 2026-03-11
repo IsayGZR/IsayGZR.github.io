@@ -1736,9 +1736,185 @@
             </div>
             <!-- ==================== FIN LIGA MX PREDICTOR ==================== -->
 
-            
-        </div>
-    </section>
+            <!-- ==================== CONNECTED VEHICLE PLATFORM ==================== -->
+            <div style="margin-top: 120px; padding-top: 80px; border-top: 1px solid rgba(100, 255, 218, 0.1);">
+
+                <div class="research-badge">AZURE CLOUD IoT</div>
+                <h3 class="research-title">Connected Vehicle Platform — Real-Time IoT Monitoring</h3>
+                <p class="research-description">
+                    Real-time connected vehicle monitoring platform built on Azure's IoT infrastructure. 
+                    Simulates a fleet of 10 vehicles transmitting live telemetry through Azure IoT Hub, 
+                    processes data with three independent Machine Learning models, and visualizes everything 
+                    on an interactive dark-mode dashboard with real street navigation across Mexico City. 
+                    Architecture mirrors production systems used by Tesla, GM, Ford, and Bosch.
+                </p>
+
+                <div class="research-meta">
+                    <div class="meta-item">
+                        <span>☁️</span>
+                        <div><strong>Platform:</strong> Azure IoT Hub + Cosmos DB</div>
+                    </div>
+                    <div class="meta-item">
+                        <span>🤖</span>
+                        <div><strong>ML Models:</strong> 3 real-time inference models</div>
+                    </div>
+                    <div class="meta-item">
+                        <span>🚗</span>
+                        <div><strong>Fleet:</strong> 10 simulated vehicles on real streets</div>
+                    </div>
+                </div>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Azure IoT Hub</span>
+                    <span class="tech-tag">Azure Cosmos DB</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Python asyncio</span>
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">Random Forest</span>
+                    <span class="tech-tag">Isolation Forest</span>
+                    <span class="tech-tag">Mapbox GL JS</span>
+                    <span class="tech-tag">Chart.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">MQTT</span>
+                </div>
+
+                <div class="section-divider" style="margin: 60px 0;"></div>
+
+                <!-- 01: ARCHITECTURE -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="display:flex; align-items:center; justify-content:center;">
+                        <img src="connected_screenshot_map.png" alt="Live Fleet Dashboard" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ connected_screenshot_map.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">01 — SYSTEM ARCHITECTURE</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Azure IoT Data Pipeline</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            Complete IoT architecture: simulated Python devices transmit telemetry via MQTT to Azure IoT Hub 
+                            as registered devices with symmetric key authentication. Data flows to Cosmos DB (NoSQL, partitioned 
+                            by vehicleId), served through a Node.js REST API, and visualized on a live web dashboard with 
+                            Mapbox GL JS and Chart.js.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Python asyncio — 10 concurrent vehicle simulators</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Azure IoT Hub — MQTT device-to-cloud messaging</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Cosmos DB — partitioned NoSQL with upsert operations</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Express API — REST endpoints with dotenv security</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 02: ML MODELS -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">02 — MACHINE LEARNING</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Real-Time Diagnostic System</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            Three independent ML models run inference on every telemetry packet. Synthetic training data 
+                            generated following automotive industry distributions — same approach used in production 
+                            predictive maintenance systems.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Random Forest — 48hr maintenance probability (100 estimators)</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Isolation Forest — unsupervised anomaly detection</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Linear Regression — km remaining before engine failure</li>
+                        </ul>
+                    </div>
+                    <div style="display:flex; align-items:center; justify-content:center;">
+                        <img src="connected_screenshot_detail.png" alt="ML Diagnostics Panel" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ connected_screenshot_detail.png ]</span>'">
+                    </div>
+                </div>
+
+                <!-- 03: REAL-TIME NAVIGATION -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div style="display:flex; align-items:center; justify-content:center;">
+                        <img src="connected_screenshot_danger.png" alt="Critical Alert System" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ connected_screenshot_danger.png ]</span>'">
+                    </div>
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">03 — REAL-TIME NAVIGATION</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Live Street-Level Routing & Alerts</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            Vehicles navigate real streets in Mexico City using Mapbox Directions API. Three-tier alert system 
+                            with real-time visual feedback: 🟢 NORMAL (safe parameters), 🟡 PRECAUCIÓN (risk 30-59%), 
+                            🔴 PELIGRO (risk 60%+, pulsing red indicators).
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Mapbox Directions API for realistic route calculation</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Animated markers following street geometry</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Real-time danger detection with pulsing alerts</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Automatic destination regeneration on arrival</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 05: SECURITY & DEPLOYMENT -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                    <div>
+                        <div class="research-badge" style="font-size:12px;">05 — SECURITY & DEPLOYMENT</div>
+                        <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Production-Ready Configuration</h4>
+                        <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                            All API keys and connection strings stored in <code style="color:var(--accent); font-family:'Space Mono',monospace;">.env</code> 
+                            files excluded from version control. GitHub push protection compliant — no secrets exposed 
+                            in repository history. Azure IoT Hub devices use individual symmetric key authentication.
+                        </p>
+                        <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Environment variables via dotenv package</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> .gitignore prevents credential exposure</li>
+                            <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Azure symmetric key device authentication</li>
+                            <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> GitHub secret scanning compliant</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--secondary); padding:40px; border-left:3px solid var(--accent);">
+                        <h5 style="color:var(--accent); font-family:'Space Mono',monospace; font-size:14px; margin-bottom:15px;">AZURE SERVICES</h5>
+                        <div style="color:var(--text); font-size:15px; line-height:1.9;">
+                            <div style="margin-bottom:15px;">
+                                <strong style="color:var(--text-light);">Azure IoT Hub</strong><br>
+                                <span style="opacity:0.8;">10 registered IoT devices with individual symmetric keys, MQTT protocol via Azure IoT Device SDK</span>
+                            </div>
+                            <div>
+                                <strong style="color:var(--text-light);">Azure Cosmos DB</strong><br>
+                                <span style="opacity:0.8;">NoSQL partitioned by /vehicleId, upsert operations for latest telemetry, SQL API with timestamp queries</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KEY ACHIEVEMENTS -->
+                <div style="margin-top:50px; padding:35px; background:var(--secondary); border-left:3px solid var(--accent);">
+                    <h4 style="font-size:22px; color:var(--text-light); margin-bottom:20px;">Key Achievements</h4>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding-left:0;">
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;">
+                            <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                            Built complete IoT data pipeline: simulated devices → Azure IoT Hub → Cosmos DB → REST API → live dashboard
+                        </li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;">
+                            <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                            Implemented 3 production-grade ML models running real-time inference on every telemetry packet
+                        </li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;">
+                            <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                            Integrated Mapbox Directions API for real street-level vehicle navigation across Mexico City
+                        </li>
+                        <li style="padding-left:30px; position:relative; margin-bottom:15px;">
+                            <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                            Designed responsive dark-mode dashboard with animated markers, pulsing alerts, and live Chart.js graphs
+                        </li>
+                        <li style="padding-left:30px; position:relative;">
+                            <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                            Secured all credentials using environment variables, achieving GitHub secret scanning compliance
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="research-links">
+                    <a href="https://github.com/IsayGZR/connected-vehicles-platform" class="research-link" target="_blank">
+                        💻 GitHub Repository
+                    </a>
+                    <a href="#" class="research-link" target="_blank" style="opacity: 0.5; pointer-events: none;">
+                        🚀 Live Demo (coming soon)
+                    </a>
+                </div>
+            </div>
+            <!-- ==================== FIN CONNECTED VEHICLE PLATFORM ==================== -->
         </div>
     </section>
 
