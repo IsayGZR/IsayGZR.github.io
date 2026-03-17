@@ -1739,7 +1739,7 @@
             <!-- ==================== CONNECTED VEHICLE PLATFORM ==================== -->
             <div style="margin-top: 120px; padding-top: 80px; border-top: 1px solid rgba(100, 255, 218, 0.1);">
 
-                <div class="research-badge">AZURE CLOUD IoT</div>
+                <div class="research-badge">PERSONAL PROJECT — AZURE CLOUD IoT</div>
                 <h3 class="research-title">Connected Vehicle Platform — Real-Time IoT Monitoring</h3>
                 <p class="research-description">
                     Real-time connected vehicle monitoring platform built on Azure's IoT infrastructure. 
@@ -1910,12 +1910,195 @@
                         💻 GitHub Repository
                     </a>
                     <a href="#" class="research-link" target="_blank" style="opacity: 0.5; pointer-events: none;">
-                        🚀 Live Demo (coming soon)
+                        🚀 Live Demo (no available yet)
                     </a>
                 </div>
             </div>
             <!-- ==================== FIN CONNECTED VEHICLE PLATFORM ==================== -->
         </div>
+
+        <!-- ==================== LSM SIGN LANGUAGE CLASSIFIER ==================== -->
+        <div style="margin-top: 120px; padding-top: 80px; border-top: 1px solid rgba(100, 255, 218, 0.1);">
+
+            <div class="research-badge">PERSONAL PROJECT — MLOps + COMPUTER VISION</div>
+            <h3 class="research-title">LSM Sign Language Classifier</h3>
+            <p class="research-description">
+                End-to-end MLOps pipeline for classifying 50 words from Mexican Sign Language using Computer Vision 
+                and deep learning. Compares three CNN architectures (ResNet50, EfficientNet-B0, MobileNetV3-Small) 
+                with transfer learning, tracks experiments with MLflow, serves the best model through FastAPI 
+                containerized with Docker, and deploys to Google Cloud Platform with serverless scaling.
+            </p>
+
+            <div class="research-meta">
+                <div class="meta-item"><strong>🎯</strong><span>70% Accuracy on 50-Class Classification</span></div>
+                <div class="meta-item"><strong>🐳</strong><span>Docker + MLflow + FastAPI</span></div>
+                <div class="meta-item"><strong>☁️</strong><span>Deployed on GCP Cloud Run</span></div>
+                <div class="meta-item"><strong>🚀</strong><span>Live Production Demo</span></div>
+            </div>
+
+            <div class="tech-tags" style="margin-bottom: 50px;">
+                <span class="tech-tag">Python 3.11</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">EfficientNet-B0</span>
+                <span class="tech-tag">Transfer Learning</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">MLflow</span>
+                <span class="tech-tag">Optuna</span>
+                <span class="tech-tag">Cloud Run</span>
+                <span class="tech-tag">Artifact Registry</span>
+                <span class="tech-tag">Firebase Hosting</span>
+                <span class="tech-tag">Swagger/OpenAPI</span>
+            </div>
+
+            <!-- 01: DATASET & MODEL COMPARISON -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                <div style="display:flex; align-items:center; justify-content:center;">
+                    <img src="lsm_screenshot_training.png" alt="Model Comparison Training" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ lsm_screenshot_training.png ]</span>'">
+                </div>
+                <div>
+                    <div class="research-badge" style="font-size:12px;">01 — DATASET & MODEL COMPARISON</div>
+                    <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Three CNN Architectures with Transfer Learning</h4>
+                    <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                        Processed 6,108 images from Kaggle's Mexican Sign Language dataset covering 50 words across 
+                        7 categories. Compared three pre-trained architectures: ResNet50 (25.6M params, ~21% accuracy), 
+                        EfficientNet-B0 (5.3M params, ~32% accuracy), and MobileNetV3-Small (2.5M params, ~26% accuracy). 
+                        Applied data augmentation and ImageNet normalization.
+                    </p>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> PyTorch DataLoader with custom preprocessing pipeline</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Data augmentation: rotation, flip, jitter, affine transforms</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Trained on Google Colab T4 GPU with Adam optimizer</li>
+                        <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> EfficientNet-B0 selected as best architecture</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 02: FINE-TUNING & MLFLOW -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                <div>
+                    <div class="research-badge" style="font-size:12px;">02 — FINE-TUNING & EXPERIMENT TRACKING</div>
+                    <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Two-Phase Transfer Learning with MLflow</h4>
+                    <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                        Implemented professional two-phase transfer learning: Phase 1 (15 epochs) trained only classifier 
+                        head with frozen backbone achieving 32% accuracy. Phase 2 (20 epochs) unfroze all layers with 10× 
+                        lower learning rate, boosting accuracy to 70%. MLflow tracked all parameters, metrics, and artifacts 
+                        across 4 training runs.
+                    </p>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> 2.2× accuracy improvement (32% → 70%) through fine-tuning</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> MLflow logs parameters, metrics, artifacts, and model registry</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Per-epoch tracking: loss, accuracy, weighted F1-score</li>
+                        <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> ReduceLROnPlateau scheduler with patience=3</li>
+                    </ul>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:center;">
+                    <img src="lsm_screenshot_mlflow.png" alt="MLflow Experiment Tracking" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ lsm_screenshot_mlflow.png ]</span>'">
+                </div>
+            </div>
+
+            <!-- 03: FASTAPI & DOCKER -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                <div style="display:flex; align-items:center; justify-content:center;">
+                    <img src="lsm_screenshot_swagger.png" alt="FastAPI Swagger Documentation" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ lsm_screenshot_swagger.png ]</span>'">
+                </div>
+                <div>
+                    <div class="research-badge" style="font-size:12px;">03 — API & CONTAINERIZATION</div>
+                    <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">REST API with FastAPI & Docker</h4>
+                    <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                        Built production REST API with FastAPI exposing 4 endpoints: health check, class list, and 
+                        /predict for real-time inference. Multi-container architecture with docker-compose: MLflow 
+                        container (experiment tracking), API container (model serving), and optimized Cloud Run container. 
+                        Auto-generated Swagger/OpenAPI docs at /docs.
+                    </p>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> POST /predict accepts images and returns top-3 predictions</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Docker multi-service architecture with docker-compose</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> CORS middleware for cross-origin frontend requests</li>
+                        <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Interactive Swagger UI for API testing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 04: GCP DEPLOYMENT -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                <div>
+                    <div class="research-badge" style="font-size:12px;">04 — CLOUD DEPLOYMENT</div>
+                    <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Serverless Production on GCP</h4>
+                    <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                        Deployed to Google Cloud Platform using Cloud Build for automated Docker builds, Artifact Registry 
+                        for versioned images, and Cloud Run for serverless container execution with auto-scaling (0-3 instances). 
+                        Frontend hosted on Firebase Hosting with global CDN. Zero-cost when idle — scales to zero automatically.
+                    </p>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Cloud Run: 4GB memory, 2 vCPUs, HTTPS with custom domain</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Artifact Registry with versioned Docker images (v1, v2)</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Firebase Hosting for static frontend with SSL/TLS</li>
+                        <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Automated builds via Cloud Build</li>
+                    </ul>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:center;">
+                    <img src="lsm_screenshot_cloudrun.png" alt="Google Cloud Run Deployment" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ lsm_screenshot_cloudrun.png ]</span>'">
+                </div>
+            </div>
+
+            <!-- 05: WEB FRONTEND -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+                <div style="display:flex; align-items:center; justify-content:center;">
+                    <img src="lsm_screenshot_frontend.png" alt="LSM Classifier Web Interface" style="max-width:100%;width:100%;height:auto;max-height:450px;object-fit:contain;" onerror="this.parentElement.innerHTML='<span style=color:rgba(100,255,218,0.3);font-family:Space Mono,monospace;font-size:13px;>[ lsm_screenshot_frontend.png ]</span>'">
+                </div>
+                <div>
+                    <div class="research-badge" style="font-size:12px;">05 — WEB FRONTEND</div>
+                    <h4 style="font-size:26px; color:var(--text-light); font-weight:600; margin-bottom:15px; line-height:1.3;">Interactive Classification Interface</h4>
+                    <p style="color:var(--text); font-size:16px; line-height:1.8; margin-bottom:20px;">
+                        Custom dark-themed web interface with drag-and-drop image upload, real-time predictions, 
+                        and animated confidence bars. Communicates with Cloud Run API via fetch requests, sending 
+                        images as multipart/form-data and displaying predicted LSM word with top-3 alternatives. 
+                        Fully responsive for mobile devices.
+                    </p>
+                    <ul style="color:var(--text); line-height:1.9; list-style:none; padding:0;">
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Drag-and-drop file upload with image preview</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Top-3 predictions with confidence percentages</li>
+                        <li style="padding-left:25px; position:relative; margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Dark theme with animated progress bars</li>
+                        <li style="padding-left:25px; position:relative;"><span style="position:absolute;left:0;color:var(--accent);">▹</span> Mobile-responsive design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- KEY ACHIEVEMENTS -->
+            <div style="margin-top:50px; padding:35px; background:var(--secondary); border-left:3px solid var(--accent);">
+                <h4 style="font-size:22px; color:var(--text-light); margin-bottom:20px;">Key Achievements</h4>
+                <ul style="color:var(--text); line-height:1.9; list-style:none; padding-left:0;">
+                    <li style="padding-left:30px; position:relative; margin-bottom:15px;">
+                        <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                        Built and compared 3 CNN architectures achieving 70% accuracy on 50-class Mexican Sign Language classification through two-phase transfer learning
+                    </li>
+                    <li style="padding-left:30px; position:relative; margin-bottom:15px;">
+                        <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                        Containerized full ML pipeline with Docker and docker-compose: MLflow for experiment tracking and FastAPI for model serving
+                    </li>
+                    <li style="padding-left:30px; position:relative; margin-bottom:15px;">
+                        <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                        Deployed production REST API on Google Cloud Run with automatic scaling (0-3 instances) and versioned Docker images in Artifact Registry
+                    </li>
+                    <li style="padding-left:30px; position:relative;">
+                        <span style="position:absolute; left:0; color:var(--accent); font-size:20px;">▹</span>
+                        Implemented comprehensive MLflow experiment tracking logging parameters, metrics, and artifacts across 4 training runs for full reproducibility
+                    </li>
+                </ul>
+            </div>
+
+                        <div class="research-links" style="margin-bottom: 60px;">
+                <a href="https://lsm-sign-classifier.web.app" class="research-link" target="_blank">
+                    🚀 Live Demo
+                </a>
+                <a href="https://github.com/IsayGZR/lsm-sign-language-classifier" class="research-link" target="_blank">
+                    💻 GitHub Repository
+                </a>
+            </div>
+
+        </div>
+        <!-- ==================== FIN LSM SIGN LANGUAGE CLASSIFIER ==================== -->
     </section>
 
     <section id="experience">
